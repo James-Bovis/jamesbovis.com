@@ -1,0 +1,42 @@
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+  	h1 {
+  		font-size: 60px;
+  	}
+
+  	h2 {
+  		font-size: 25px;
+  	}
+	
+	.intro-section {
+		height: 90vh;
+	}
+
+	.about-section {
+		padding: 15px 0px;
+
+		.about-content {
+			padding: 30px;
+		}
+	}
+
+	.portfolio-row {
+		margin-top: 0px;
+		
+		.col-md-6 {
+		padding-bottom: 15px;
+		padding-right: 15px;
+		}
+	}
+
+	.scroll-down {
+		bottom: 2%;
+	}
+
+
+
+	
+}
