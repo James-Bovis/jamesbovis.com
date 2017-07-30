@@ -1,0 +1,24 @@
+{
+  "name": "james-bovis-2.0",
+  "version": "1.0.0",
+  "description": "A new website for jamesbovis.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/James-Bovis/jamesbovis-2.0.git"
+  },
+  "author": "James Bovs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/James-Bovis/jamesbovis-2.0/issues"
+  },
+  "homepage": "https://github.com/James-Bovis/jamesbovis-2.0#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}
