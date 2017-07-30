@@ -7,6 +7,10 @@
 	&:hover {
 		color: $pink;
 	}
+
+	&:focus {
+		color: white;
+	}
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -20,7 +24,6 @@
 		background-color: transparent;
 	}
 }
-
 
 .navbar-home {
 	position: absolute;
@@ -39,15 +42,7 @@
 			color: $white;
 		}
 	}
-
-	.navbar-nav li a {
-		color: $white;
-
-		&:hover {
-			color: $pink;
-		}
-	}
-
+	
 	.navbar-right {
 		margin-right: 50px;
 	}

@@ -48,6 +48,8 @@ a {
   a:hover {
     color: #fc0065;
     text-decoration: none; }
+  a:focus {
+    color: #ffffff; }
 
 ul {
   color: black;
@@ -66,6 +68,7 @@ ul {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
 @-webkit-keyframes blink {
   0% {
     opacity: 1; }
@@ -73,6 +76,7 @@ ul {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
 @-moz-keyframes blink {
   0% {
     opacity: 1; }
@@ -80,6 +84,7 @@ ul {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
 .text-animation {
   -webkit-animation-delay: 0.5s;
   -moz-animation-delay: 0.5s;
@@ -133,6 +138,8 @@ ul {
   color: #ffffff; }
   .navbar-default .navbar-nav > li > a:hover {
     color: #fc0065; }
+  .navbar-default .navbar-nav > li > a:focus {
+    color: white; }
 
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #ffffff; }
@@ -155,10 +162,6 @@ ul {
     margin-left: 50px; }
     .navbar-home .navbar-brand:hover {
       color: #ffffff; }
-  .navbar-home .navbar-nav li a {
-    color: #ffffff; }
-    .navbar-home .navbar-nav li a:hover {
-      color: #fc0065; }
   .navbar-home .navbar-right {
     margin-right: 50px; }
 
@@ -180,7 +183,7 @@ ul {
 
 .portfolio-row {
   margin-top: 15px; }
-  .portfolio-row .col-md-6 {
+  .portfolio-row .col-md-4 {
     padding-right: 0px; }
   .portfolio-row .col-md-3 {
     padding-right: 0px; }
@@ -227,10 +230,13 @@ ul {
 .portfolio-item-col h1 {
   color: #0d035c;
   font-size: 50px; }
+
 .portfolio-item-col h3 {
   color: #fc0065; }
+
 .portfolio-item-col p {
   color: black; }
+
 .portfolio-item-col .btn {
   margin-top: 25px; }
 
@@ -243,7 +249,21 @@ ul {
 .container-white {
   background-color: #ffffff; }
 
+.thumbnail {
+  padding: 0px;
+  background-color: #ffffff;
+  border: 0px;
+  border-radius: 0px; }
+  .thumbnail .caption {
+    padding: 25px; }
+
+.container-white {
+  background-color: #ffffff; }
+
 /*Fit background image to entire section, with support for different clients*/
+.section-header {
+  margin-bottom: 50px; }
+
 .intro-section {
   height: 100vh;
   background-position: center;
@@ -269,6 +289,22 @@ ul {
     padding: 0px; }
   .about-section h3 {
     marin-bottom: 50px; }
+  .about-section .container {
+    display: flex; }
+  .about-section .profile-image {
+    background-size: cover;
+    background-image: url(../img/about-me-profile-2.jpg);
+    background-position: center; }
+    .about-section .profile-image .social-icons {
+      position: absolute;
+      right: 2%;
+      top: 2%; }
+      .about-section .profile-image .social-icons ul {
+        list-style: none; }
+      .about-section .profile-image .social-icons li {
+        display: inline-block; }
+      .about-section .profile-image .social-icons img {
+        width: 50px; }
 
 .work-section {
   -webkit-background-size: repeat;
@@ -286,6 +322,20 @@ ul {
   background-color: #30cd55;
   padding: 100px 0px; }
 
+.footer-section {
+  background-color: grey;
+  padding: 30px 0px; }
+  .footer-section p {
+    margin: 0px;
+    text-align: center; }
+  .footer-section .social-icons li {
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+    margin-top: 20px; }
+    .footer-section .social-icons li img {
+      width: 30px; }
+
 /* Allows the content to be centered horizontally if needed*/
 .center-content {
   display: flex;
@@ -295,25 +345,23 @@ ul {
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
   h1 {
     font-size: 60px; }
-
   h2 {
     font-size: 25px; }
-
-  .intro-section {
-    height: 90vh; }
-
   .about-section {
     padding: 15px 0px; }
     .about-section .about-content {
       padding: 30px; }
-
   .portfolio-row {
     margin-top: 0px; }
     .portfolio-row .col-md-6 {
       padding-bottom: 15px;
       padding-right: 15px; }
-
   .scroll-down {
-    bottom: 2%; } }
-
-/*# sourceMappingURL=main.css.map */
+    bottom: 2%; }
+  .portfolio-item-bg {
+    padding: 0px; }
+  .portfolio-row {
+    margin-left: -15px;
+    margin-right: 0px; }
+    .portfolio-row img {
+      margin-bottom: 15px; } }

@@ -11,9 +11,6 @@
   		font-size: 25px;
   	}
 	
-	.intro-section {
-		height: 90vh;
-	}
 
 	.about-section {
 		padding: 15px 0px;
@@ -35,6 +32,21 @@
 	.scroll-down {
 		bottom: 2%;
 	}
+
+	.portfolio-item-bg {
+		padding: 0px;
+	}
+
+	.portfolio-row {
+		margin-left: -15px;
+		margin-right: 0px;
+
+		img {
+			margin-bottom: 15px;
+		}
+	}
+
+
 
 
 
