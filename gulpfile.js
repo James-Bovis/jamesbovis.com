@@ -26,7 +26,7 @@ gulp.task('browserSync', function() {
 
 
 // Gulp watch syntax
-gulp.task('watch', ['browserSync', 'sass'], function (){
+gulp.task('default', ['browserSync', 'sass'], function (){
   gulp.watch('stylesheets/**/*.scss', ['sass']); 
   // Other watchers
   gulp.watch('**/*.html', browserSync.reload);
