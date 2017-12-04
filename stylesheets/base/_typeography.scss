@@ -58,6 +58,10 @@ a {
 	color: $pink;
 	text-decoration: none;
 
+	&.hvr-underline-from-left {
+		vertical-align: sub !important;
+	}
+
 	&:hover {
 		color: $pink;
 		text-decoration: none;
@@ -67,6 +71,8 @@ a {
 		color: $white;
 	}
 }
+
+
 
 ul {
 	color: black;
