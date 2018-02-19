@@ -14,10 +14,14 @@
   	h3 span {
   		display: none;
   	}
-	
 
 	.about-section {
-		padding: 15px 0px;
+		padding: 0px;
+
+		.container {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
 
 		.about-content {
 			padding: 30px;
@@ -43,6 +47,10 @@
 
 	.portfolio-item-bg {
 		padding: 0px;
+
+		.container {
+			padding: 2rem 1rem;
+		}
 	}
 
 	.portfolio-row {
