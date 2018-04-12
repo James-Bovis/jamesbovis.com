@@ -17,6 +17,20 @@
 
 		.about-content {
 			padding: 30px;
+			text-align: center;
+
+			&__icon {
+				display: block;
+				border-radius: 50%;
+				width: 100px;
+				margin: auto;
+				border: 0px solid $dark-blue;
+			}
+			
+			// Hides emoji on mobile
+			h3 i {
+				display: none;
+			}
 		}
 
 		.social-icons {

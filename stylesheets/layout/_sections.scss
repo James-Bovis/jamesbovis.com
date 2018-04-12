@@ -34,6 +34,10 @@
 		p {
 			color: black;
 		}
+
+    &__icon {
+      display: none;
+    }
 	}
 
 	.col-md-6 {
@@ -51,9 +55,9 @@
 
 	.profile-image {
 		background-size: cover;
-    	background-image: url(../img/about-me-profile-2.jpg);
-    	background-position: center;
-
+  	background-image: url(../img/about-me-profile-2.jpg);
+  	background-position: center;
+    
     	.social-icons {
     		position: absolute;
     		right: 2%;
