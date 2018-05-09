@@ -10,6 +10,12 @@
   	h2 {
   		font-size: 25px;
   	}
+
+  	.section-header {
+  		span {
+  			display: none;
+  		}
+  	}
 	
 
 	.about-section {
@@ -82,4 +88,6 @@
 			}
 		}
 	}
+
+
 }
