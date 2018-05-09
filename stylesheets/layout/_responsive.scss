@@ -88,6 +88,12 @@
 			}
 		}
 	}
-
-
+	
+	// Button group in About section
+	.button-group {
+		a:first-child {
+			margin-right: 0px;
+			margin-bottom: 10px;
+		}
+	}
 }
