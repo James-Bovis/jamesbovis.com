@@ -10,6 +10,12 @@
   	h2 {
   		font-size: 25px;
   	}
+
+  	.section-header {
+  		span {
+  			display: none;
+  		}
+  	}
 	
 
 	.about-section {
@@ -17,6 +23,19 @@
 
 		.about-content {
 			padding: 30px;
+			text-align: center;
+
+			&__icon {
+				display: block;
+				border-radius: 50%;
+				width: 100px;
+				margin: auto;
+			}
+			
+			// Hides emoji on mobile
+			h3 i {
+				display: none;
+			}
 		}
 
 		.social-icons {
@@ -41,6 +60,18 @@
 		padding: 0px;
 	}
 
+	.portfolio-item__title {
+		margin-bottom: 0px;
+	}
+
+	.portfolio-item__masthead {
+
+		.portfolio-item__masthead__description {
+			padding: 2rem 3rem;
+		}
+
+	}
+
 	.portfolio-row {
 		margin-left: -15px;
 		margin-right: 0px;
@@ -50,11 +81,13 @@
 		}
 	}
 
+	.thumbnail {
+		.caption {
+			h3 {
+				font-size: 24px;
+			}
+		}
+	}
 
 
-
-
-
-
-	
 }

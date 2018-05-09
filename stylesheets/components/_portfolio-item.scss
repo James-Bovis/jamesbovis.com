@@ -1,3 +1,6 @@
+@import '../base/colors';
+
+
 .portfolio-row {
 	margin-top: 15px;
 
@@ -49,4 +52,41 @@
 		-ms-transform:translateY(-70px);
 		-o-transform:translateY(-70px);
 	}
+}
+
+.portfolio-item__masthead {
+	position: relative;
+
+	.portfolio-item__masthead-img {
+		width: 100%;
+		text-align: center
+	}
+
+	.portfolio-item__masthead__description{
+		position: absolute;
+		bottom: 0px;
+		width: 100%;
+		padding: 3rem 5rem;
+		background-color: rgba(252, 0, 101, 0.8);
+	}
+
+	.portfolio-item__masthead__button {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+	}
+
+	.portfolio-item__title {
+		font-size: 50px;
+		margin-top: 0px;
+	}
+
+	.portfolio-item__subtitle {
+		margin-bottom: 0px;
+	}
+}
+
+.portfolio-item__content {
+	padding: 5rem;
+	color: black;
 }
