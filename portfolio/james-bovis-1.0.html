@@ -90,10 +90,10 @@
 						<p>I started on paper. Firstly, writing out my name in full, rearranging the two words in different ways to see what looked the best. Luckily for me, both my forename and surname have the same about of letters in them, so I decided that I should go for a “stacked” approach.</p>
 
 						<div class="col-md-6 text-center" style="margin-bottom: 20px;">
-							<img src="../img/portfolio/james-bovis-1.0/idea-1.png" alt="">
+							<img src="../img/portfolio/james-bovis-1.0/idea-1.png" alt="" class="img-responsive">
 						</div>
 						<div class="col-md-6 text-center" style="margin-bottom: 20px;">
-							<img src="../img/portfolio/james-bovis-1.0/idea-2.png" alt="">
+							<img src="../img/portfolio/james-bovis-1.0/idea-2.png" alt="" class="img-responsive">
 						</div>
 
 						<p>One thing that I wanted to include into the logo from the outset was using HTML closing tags somewhere in the design.</p>
@@ -101,10 +101,10 @@
 						<h3>The final idea</h3>
 						<br>
 						<div class="col-md-6 text-center" style="margin-bottom: 20px;">
-							<img src="../img/portfolio/james-bovis-1.0/final-1.png" alt="">
+							<img src="../img/portfolio/james-bovis-1.0/final-1.png" alt="" class="img-responsive">
 						</div>
 						<div class="col-md-6 text-center" style="margin-bottom: 20px;">
-							<img src="../img/portfolio/james-bovis-1.0/final-2.png" alt="">
+							<img src="../img/portfolio/james-bovis-1.0/final-2.png" alt="" class="img-responsive">
 						</div>
 
 						<p>After a few more sketches and prototypes in illustrator, I was finally satisfied with the final outcome.</p>
@@ -134,18 +134,18 @@
 			</div>
 		</div>
 
-
-		<!-- CDN for load elements on scroll -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-		<script> new WOW().init(); </script>
+		<!-- Load JQuery -->
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"> </script>
+		
 		<!-- Allow Twemoji Emoji's to be loaded -->
 		<script src="http://twemoji.maxcdn.com/twemoji.min.js"></script>
-		<!-- Load JQuery -->
-		<script
-  			src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-  			integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-  			crossorigin="anonymous">
-  		</script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<!-- Get current year for footer -->
+		<script>
+			$('#spanYear').html(new Date().getFullYear());
+		</script>
+		
+		<!-- Bootstrap JS -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</body>
 </html>

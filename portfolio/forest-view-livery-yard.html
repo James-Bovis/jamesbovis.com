@@ -93,18 +93,18 @@
 			</div>
 		</div>
 
-
-		<!-- CDN for load elements on scroll -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-		<script> new WOW().init(); </script>
+		<!-- Load JQuery -->
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"> </script>
+		
 		<!-- Allow Twemoji Emoji's to be loaded -->
 		<script src="http://twemoji.maxcdn.com/twemoji.min.js"></script>
-		<!-- Load JQuery -->
-		<script
-  			src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-  			integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-  			crossorigin="anonymous">
-  		</script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<!-- Get current year for footer -->
+		<script>
+			$('#spanYear').html(new Date().getFullYear());
+		</script>
+		
+		<!-- Bootstrap JS -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</body>
 </html>
