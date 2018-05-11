@@ -59,18 +59,26 @@
 	.portfolio-item-bg {
 		padding: 0px;
 	}
-
-	.portfolio-item__title {
-		margin-bottom: 0px;
-	}
-
-	.portfolio-item__masthead {
-
-		.portfolio-item__masthead__description {
-			padding: 2rem 3rem;
+	
+	.portfolio-item {
+		.portfolio-item__title {
+			margin-bottom: 0px;
+			font-size: 40px;
 		}
 
+		.portfolio-item__content {
+			padding: 2.5rem;
+			word-break: break-word;
+		}
+
+		.portfolio-item__masthead {
+			.portfolio-item__masthead__description {
+				padding: 2rem 3rem;
+				position: relative;
+			}
+		}
 	}
+	
 
 	.portfolio-row {
 		margin-left: -15px;

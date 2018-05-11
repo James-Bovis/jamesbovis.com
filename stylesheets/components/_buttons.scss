@@ -17,6 +17,11 @@
 	&.btn-pink {
 		background-color: $pink;
 	}
+
+	&.btn-portfolio-sm {
+		border-radius: 0px;
+		padding: 10px;
+	}
 }
 
 .button-group {
