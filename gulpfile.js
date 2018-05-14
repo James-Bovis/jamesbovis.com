@@ -1,10 +1,12 @@
 var gulp = require('gulp');
-
-// Requires the gulp-sass plugin
 var sass = require('gulp-sass');
-
-// Requires Live Reload
 var browserSync = require('browser-sync').create();
+var runSequence = require('run-sequence');
+var imagemin = require('gulp-imagemin');
+var cache = require('gulp-cache');
+var del = require('del');
+var useref = require('gulp-useref');
+var uncss = require('gulp-uncss');
 
 // Compiles the sass code into css
 gulp.task('sass', function(){
