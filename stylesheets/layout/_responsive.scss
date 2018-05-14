@@ -1,7 +1,7 @@
 /* Portrait and Landscape */
 @media only screen 
   and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
+  and (max-device-width: 1024px) 
   and (-webkit-min-device-pixel-ratio: 2) { 
   	h1 {
   		font-size: 60px;
@@ -19,7 +19,7 @@
 	
 
 	.about-section {
-		padding: 15px 0px;
+		padding: 30px 0px;
 
 		.about-content {
 			padding: 30px;
@@ -36,10 +36,6 @@
 			h3 i {
 				display: none;
 			}
-		}
-
-		.social-icons {
-			display: none;
 		}
 	}
 
