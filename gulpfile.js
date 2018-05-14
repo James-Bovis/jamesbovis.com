@@ -22,7 +22,7 @@ var uncss = require('gulp-uncss');
       .pipe(uncss({
           html: ['src/**/*.html'],
       }))
-      .pipe(gulp.dest('dist/stylesheets/uncss/'));
+      .pipe(gulp.dest('dist/stylesheets/'));
   });
 
   // Compress images
@@ -30,6 +30,21 @@ var uncss = require('gulp-uncss');
     return gulp.src('src/img/**/*.+(png|jpg|gif|svg)')
     .pipe(cache(imagemin()))
     .pipe(gulp.dest('dist/img'))
+  });
+
+  // Runs the entire build process to create a finished dist folder
+  gulp.task('build', function (callback) {
+    runSequence('clean:dist', 'sass', 'uncss', 
+      ['copy-html', 'images'])
+  })
+
+
+  // Concentrates the link and srcipt files in index.html and outputs to a single file
+  gulp.task('copy-html', function(){
+    return gulp.src('src/**/*.html')
+      .pipe(useref())
+      // Minifies only if it's a JavaScript file
+      .pipe(gulp.dest('dist'))
   });
 
 
