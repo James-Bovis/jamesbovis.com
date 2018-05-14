@@ -25,6 +25,13 @@ var uncss = require('gulp-uncss');
       .pipe(gulp.dest('dist/stylesheets/uncss/'));
   });
 
+  // Compress images
+  gulp.task('images', function(){
+    return gulp.src('src/img/**/*.+(png|jpg|gif|svg)')
+    .pipe(cache(imagemin()))
+    .pipe(gulp.dest('dist/img'))
+  });
+
 
 // BUILDING LOCAL VERSION
   // Runs browsersync on root folder
