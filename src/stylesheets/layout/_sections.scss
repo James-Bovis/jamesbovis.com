@@ -1,0 +1,118 @@
+@import '../base/colors';
+
+/*Fit background image to entire section, with support for different clients*/
+@mixin background-cover {
+	-webkit-background-size: repeat;
+	-moz-background-size: repeat;
+	-o-background-size: repeat;
+	background-size: repeat;
+}
+
+// Gives Section header the correct spacing
+.section-header {
+	margin-bottom: 50px;
+}
+
+.intro-section {
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+	background-color: $dark-blue;
+	background-image: url(../img/intro-bg.jpg)
+}
+
+.about-section {
+	@include background-cover;
+	background-color: $pink;
+	padding: 150px 0px;
+	background-image: url(../img/about-me-bg.svg);
+
+	.about-content {
+		padding: 50px;
+		background-color: $white;
+
+		p {
+			color: black;
+		}
+
+    &__icon {
+      display: none;
+    }
+	}
+
+	.col-md-6 {
+		margin: 0px;
+		padding: 0px;
+	}
+
+	h3 {
+		marin-bottom: 50px;
+	}
+
+	.container	{
+		display: flex;
+	}
+
+	.profile-image {
+		background-size: cover;
+  	background-image: url(../img/about-me-profile-2.jpg);
+  	background-position: center;
+    
+    	.social-icons {
+    		position: absolute;
+    		right: 2%;
+    		top: 2%;
+
+    		ul {
+    			list-style: none;
+    		}
+
+    		li {
+    			display: inline-block;
+    		}
+
+    		img {
+    			width: 50px;
+    		}
+    	}
+	}
+
+}
+
+
+.work-section {
+	@include background-cover;
+	background-color: $dark-blue;
+	padding: 50px 0px 100px 0px;
+}
+
+.blog-section {
+	@include background-cover;
+	background-color: $green;
+	padding: 100px 0px;
+}
+
+.footer-section {
+	background-color: grey;
+	padding: 30px 0px;
+  
+  ul {
+    padding-left: 0px;
+  }
+  
+	p {
+		margin: 0px;
+		text-align: center;
+	}
+
+	.social-icons li {
+		display: inline-block;
+		list-style: none;
+		text-align: center;
+		margin-top: 20px;
+
+		img {
+			width: 30px;
+		}
+	}
+}

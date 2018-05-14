@@ -1,0 +1,76 @@
+@import 'colors';
+
+$rubik-font: 'Rubik', sans-serif;
+$roboto-font: 'Roboto Mono', monospace;
+
+
+body {
+	font-family: $roboto-font;
+	color: $white;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+	font-family: $rubik-font;
+	font-size: 100px;
+	color: $white;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-family: $roboto-font;
+	font-size: 40px;
+	color: $white;
+}
+
+h3 {
+	font-family: $rubik-font;
+	font-size: 35px;
+	color: $dark-blue;
+	text-transform: uppercase;
+
+	&.white {
+		color: $white;
+	}
+
+	span {
+		color: $pink;
+	}
+
+	&.section-header {
+		margin-bottom: 50px;
+	}
+}
+
+h4 {
+	color: black;
+	margin-bottom: 20px;
+}
+
+p {
+	font-family: $roboto-font;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+a {
+	color: $pink;
+	text-decoration: none;
+
+	&:hover {
+		color: $pink;
+		text-decoration: none;
+	}
+
+	&:focus {
+		color: $pink;
+	}
+}
+
+
+
+ul {
+	color: black;
+	padding-left: 15px;
+}
