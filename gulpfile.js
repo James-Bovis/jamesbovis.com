@@ -39,12 +39,22 @@ var uncss = require('gulp-uncss');
   })
 
 
-  // Concentrates the link and srcipt files in index.html and outputs to a single file
+  // Copies the HTML files for now
+  // Will use once templating is implemented
   gulp.task('copy-html', function(){
     return gulp.src('src/**/*.html')
       .pipe(useref())
       // Minifies only if it's a JavaScript file
       .pipe(gulp.dest('dist'))
+  });
+
+  // Copy over the JS files
+  // Again, will use when templating is implemented
+  gulp.task('copy-js', function(){
+    return gulp.src('src/js/*.js')
+      .pipe(useref())
+      // Minifies only if it's a JavaScript file
+      .pipe(gulp.dest('dist/js/'))
   });
 
 
