@@ -13,16 +13,16 @@ var uncss = require('gulp-uncss');
   gulp.task('browserSync', function() {
     browserSync.init({
       server: {
-        baseDir: './'
+        baseDir: 'src/'
       },
     })
   })
 
   // Compiles the SASS into CSS
   gulp.task('sass', function(){
-    return gulp.src('stylesheets/main.scss')
+    return gulp.src('src/stylesheets/main.scss')
       .pipe(sass({outputStyle: 'compressed'})) // Using gulp-sass - outputs compressed file
-      .pipe(gulp.dest('stylesheets/'))
+      .pipe(gulp.dest('src/stylesheets/'))
       .pipe(browserSync.reload({
         stream: true
       }))
@@ -30,7 +30,7 @@ var uncss = require('gulp-uncss');
 
   // Watches CSS and JS files for changes and reloads browser
   gulp.task('watch', ['browserSync', 'sass'], function (){
-    gulp.watch('stylesheets/**/*.scss', ['sass']); 
+    gulp.watch('src/stylesheets/**/*.scss', ['sass']); 
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('**/*.html', browserSync.reload); 
     gulp.watch('js/*.js', browserSync.reload); 
