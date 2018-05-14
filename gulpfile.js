@@ -8,6 +8,24 @@ var del = require('del');
 var useref = require('gulp-useref');
 var uncss = require('gulp-uncss');
 
+// BUILDING DIST VERSION
+
+  // Deletes the dist folder
+  gulp.task('clean:dist', function() {
+    return del.sync('dist');
+  })
+
+  // Goes though all the CSS files in SRC/CSS and strips out anything thats not being used
+  gulp.task('uncss', function () {
+    // Go through every CSS file EXCEPT the fbmessenger.css file
+    return gulp.src(['src/stylesheets/**/*.css' , '!src/stylesheets/uncss/**/*.css'])
+      .pipe(uncss({
+          html: ['src/**/*.html'],
+      }))
+      .pipe(gulp.dest('dist/stylesheets/uncss/'));
+  });
+
+
 // BUILDING LOCAL VERSION
   // Runs browsersync on root folder
   gulp.task('browserSync', function() {
