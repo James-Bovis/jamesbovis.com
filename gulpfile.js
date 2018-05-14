@@ -8,29 +8,37 @@ var del = require('del');
 var useref = require('gulp-useref');
 var uncss = require('gulp-uncss');
 
-// Compiles the sass code into css
-gulp.task('sass', function(){
-  return gulp.src('stylesheets/main.scss')
-    .pipe(sass({outputStyle: 'compressed'})) // Using gulp-sass - outputs compressed file
-    .pipe(gulp.dest('stylesheets/'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-});
-
-// Runs browsersync on root folder
-gulp.task('browserSync', function() {
-  browserSync.init({
-    server: {
-      baseDir: './'
-    },
+// BUILDING LOCAL VERSION
+  // Runs browsersync on root folder
+  gulp.task('browserSync', function() {
+    browserSync.init({
+      server: {
+        baseDir: './'
+      },
+    })
   })
-})
 
+  // Compiles the SASS into CSS
+  gulp.task('sass', function(){
+    return gulp.src('stylesheets/main.scss')
+      .pipe(sass({outputStyle: 'compressed'})) // Using gulp-sass - outputs compressed file
+      .pipe(gulp.dest('stylesheets/'))
+      .pipe(browserSync.reload({
+        stream: true
+      }))
+  });
 
-// Gulp watch syntax
-gulp.task('default', ['browserSync', 'sass'], function (){
-  gulp.watch('stylesheets/**/*.scss', ['sass']); 
-  // Other watchers
-  gulp.watch('**/*.html', browserSync.reload);
-})
+  // Watches CSS and JS files for changes and reloads browser
+  gulp.task('watch', ['browserSync', 'sass'], function (){
+    gulp.watch('stylesheets/**/*.scss', ['sass']); 
+    // Reloads the browser whenever HTML or JS files change
+    gulp.watch('**/*.html', browserSync.reload); 
+    gulp.watch('js/*.js', browserSync.reload); 
+  });
+
+  // Main Gulp Task
+  gulp.task('default', function (callback) {
+    runSequence(['sass','browserSync', 'watch'],
+      callback
+    )
+  })
