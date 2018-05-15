@@ -37,7 +37,7 @@ var uncss = require('gulp-uncss');
   // Runs the entire build process to create a finished dist folder
   gulp.task('build', function (callback) {
     runSequence('clean:dist', 'sass', 'uncss', 
-      ['copy-html', 'copy-js', 'images'])
+      ['copy-html', 'useref', 'images'])
   })
 
 
@@ -58,16 +58,6 @@ var uncss = require('gulp-uncss');
       .pipe(gulpIf('*.js', uglify()))
       .pipe(gulp.dest('dist'))
   });
-
-  // Copy over the JS files
-  // Again, will use when templating is implemented
-  // gulp.task('copy-js', function(){
-  //   return gulp.src('src/js/*.js')
-  //     .pipe(useref())
-  //     // Minifies only if it's a JavaScript file
-  //     .pipe(gulp.dest('dist/js/'))
-  // });
-
 
 // BUILDING LOCAL VERSION
   // Runs browsersync on root folder
