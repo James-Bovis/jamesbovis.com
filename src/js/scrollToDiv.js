@@ -1,0 +1,1 @@
+$('nav a').click(function(e){e.preventDefault();var goto=$(this).attr('href');$('html, body').animate({scrollTop:$(goto).position().top},'slow');});

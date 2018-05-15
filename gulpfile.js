@@ -6,6 +6,8 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 var useref = require('gulp-useref');
+var gulpIf = require('gulp-if');
+var uglify = require('gulp-uglify');
 var uncss = require('gulp-uncss');
 
 // BUILDING DIST VERSION
@@ -48,14 +50,23 @@ var uncss = require('gulp-uncss');
       .pipe(gulp.dest('dist'))
   });
 
-  // Copy over the JS files
-  // Again, will use when templating is implemented
-  gulp.task('copy-js', function(){
-    return gulp.src('src/js/*.js')
+  // Concate my js files into 1 single minified file
+  gulp.task('useref', function(){
+    return gulp.src('src/index.html')
       .pipe(useref())
       // Minifies only if it's a JavaScript file
-      .pipe(gulp.dest('dist/js/'))
+      .pipe(gulpIf('*.js', uglify()))
+      .pipe(gulp.dest('dist'))
   });
+
+  // Copy over the JS files
+  // Again, will use when templating is implemented
+  // gulp.task('copy-js', function(){
+  //   return gulp.src('src/js/*.js')
+  //     .pipe(useref())
+  //     // Minifies only if it's a JavaScript file
+  //     .pipe(gulp.dest('dist/js/'))
+  // });
 
 
 // BUILDING LOCAL VERSION
