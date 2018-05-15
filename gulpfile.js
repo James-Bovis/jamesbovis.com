@@ -35,7 +35,7 @@ var uncss = require('gulp-uncss');
   // Runs the entire build process to create a finished dist folder
   gulp.task('build', function (callback) {
     runSequence('clean:dist', 'sass', 'uncss', 
-      ['copy-html', 'images'])
+      ['copy-html', 'copy-js', 'images'])
   })
 
 
