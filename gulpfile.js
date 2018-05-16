@@ -9,6 +9,7 @@ var useref = require('gulp-useref');
 var gulpIf = require('gulp-if');
 var uglify = require('gulp-uglify');
 var uncss = require('gulp-uncss');
+var nunjucksRender = require('gulp-nunjucks-render');
 
 // BUILDING DIST VERSION
 
@@ -50,14 +51,28 @@ var uncss = require('gulp-uncss');
       .pipe(gulp.dest('dist'))
   });
 
+  // Nunjucks task
+  gulp.task('nunjucks', function() {
+    // Gets .html and .nunjucks files in pages
+    return gulp.src('src/pages/**/*.+(html|nunjucks)')
+    // Renders template with nunjucks
+    .pipe(nunjucksRender({
+        path: ['src/templates']
+      }))
+    // output files in app folder
+    .pipe(gulp.dest('dist/'))
+  });
+
   // Concate my js files into 1 single minified file
   gulp.task('useref', function(){
-    return gulp.src('src/index.html')
+    return gulp.src('dist/*.html')
       .pipe(useref())
       // Minifies only if it's a JavaScript file
       .pipe(gulpIf('*.js', uglify()))
       .pipe(gulp.dest('dist'))
   });
+
+  
 
 // BUILDING LOCAL VERSION
   // Runs browsersync on root folder
