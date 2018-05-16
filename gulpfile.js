@@ -20,35 +20,11 @@ var nunjucksRender = require('gulp-nunjucks-render');
 
   // Goes though all the CSS files in SRC/CSS and strips out anything thats not being used
   gulp.task('uncss', function () {
-    // Go through every CSS file EXCEPT the fbmessenger.css file
     return gulp.src(['src/stylesheets/**/*.css' , '!src/stylesheets/uncss/**/*.css'])
       .pipe(uncss({
           html: ['src/**/*.html'],
       }))
       .pipe(gulp.dest('dist/stylesheets/'));
-  });
-
-  // Compress images
-  gulp.task('images', function(){
-    return gulp.src('src/img/**/*.+(png|jpg|gif|svg)')
-    .pipe(cache(imagemin()))
-    .pipe(gulp.dest('dist/img'))
-  });
-
-  // Runs the entire build process to create a finished dist folder
-  gulp.task('build', function (callback) {
-    runSequence('clean:dist', 'sass', 'uncss', 
-      ['copy-html', 'useref', 'images'])
-  })
-
-
-  // Copies the HTML files for now
-  // Will use once templating is implemented
-  gulp.task('copy-html', function(){
-    return gulp.src('src/**/*.html')
-      .pipe(useref())
-      // Minifies only if it's a JavaScript file
-      .pipe(gulp.dest('dist'))
   });
 
   // Nunjucks task
@@ -60,26 +36,37 @@ var nunjucksRender = require('gulp-nunjucks-render');
         path: ['src/templates']
       }))
     // output files in app folder
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('src/'))
   });
 
   // Concate my js files into 1 single minified file
   gulp.task('useref', function(){
-    return gulp.src('dist/*.html')
+    return gulp.src('src/*.html')
       .pipe(useref())
       // Minifies only if it's a JavaScript file
       .pipe(gulpIf('*.js', uglify()))
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest('dist/'))
   });
 
-  
+  // Compress images
+  gulp.task('images', function(){
+    return gulp.src('src/img/**/*.+(png|jpg|gif|svg)')
+    .pipe(cache(imagemin()))
+    .pipe(gulp.dest('dist/img'))
+  });
+
+  // Runs the entire build process to create a finished dist folder
+  gulp.task('build', function (callback) {
+    runSequence('clean:dist', 'sass', 'uncss', 'nunjucks', 
+      ['useref', 'images'])
+  })
 
 // BUILDING LOCAL VERSION
   // Runs browsersync on root folder
   gulp.task('browserSync', function() {
     browserSync.init({
       server: {
-        baseDir: 'src/'
+        baseDir: 'src/pages/'
       },
     })
   })
