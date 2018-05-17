@@ -10,6 +10,7 @@ var gulpIf = require('gulp-if');
 var uglify = require('gulp-uglify');
 var uncss = require('gulp-uncss');
 var nunjucksRender = require('gulp-nunjucks-render');
+var concat = require('gulp-concat');
 
 var siteOutput = './dist';
 
@@ -41,14 +42,13 @@ var siteOutput = './dist';
     .pipe(gulp.dest(siteOutput))
   });
 
-  // Concate my js files into 1 single minified file
-  gulp.task('useref', function(){
-    return gulp.src('src/pages/**/*.html')
-      .pipe(useref())
-      // Minifies only if it's a JavaScript file
-      .pipe(gulpIf('*.js', uglify()))
-      .pipe(gulp.dest('dist/'))
+  gulp.task('concat', function() {
+    return gulp.src('src/js/*.js')
+        .pipe(concat('jamesbovis.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
   });
+
 
   // Portfolio useref
   gulp.task('useref-portfolio', function(){
@@ -69,7 +69,7 @@ var siteOutput = './dist';
   // Runs the entire build process to create a finished dist folder
   gulp.task('build', function (callback) {
     runSequence('clean:dist', 'sass', 'uncss', 'nunjucks', 
-      ['useref', 'images'])
+      ['concat', 'images', 'browserSync'])
   })
 
 // BUILDING LOCAL VERSION
@@ -77,7 +77,7 @@ var siteOutput = './dist';
   gulp.task('browserSync', function() {
     browserSync.init({
       server: {
-        baseDir: 'src/'
+        baseDir: 'dist/'
       },
     })
   })
