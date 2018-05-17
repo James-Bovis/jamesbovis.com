@@ -11,6 +11,8 @@ var uglify = require('gulp-uglify');
 var uncss = require('gulp-uncss');
 var nunjucksRender = require('gulp-nunjucks-render');
 
+var siteOutput = './dist';
+
 // BUILDING DIST VERSION
 
   // Deletes the dist folder
@@ -36,23 +38,32 @@ var nunjucksRender = require('gulp-nunjucks-render');
         path: ['src/templates']
       }))
     // output files in app folder
-    .pipe(gulp.dest('src/'))
+    .pipe(gulp.dest(siteOutput))
   });
 
   // Concate my js files into 1 single minified file
   gulp.task('useref', function(){
-    return gulp.src(['src/index.html' , 'src/portfolio/*.html'])
+    return gulp.src('src/pages/**/*.html')
       .pipe(useref())
       // Minifies only if it's a JavaScript file
       .pipe(gulpIf('*.js', uglify()))
       .pipe(gulp.dest('dist/'))
   });
 
+  // Portfolio useref
+  gulp.task('useref-portfolio', function(){
+    return gulp.src('src/portfolio/*.html')
+      .pipe(useref())
+      // Minifies only if it's a JavaScript file
+      .pipe(gulpIf('*.js', uglify()))
+      .pipe(gulp.dest('dist/portfolio/'))
+  });
+
   // Compress images
   gulp.task('images', function(){
     return gulp.src('src/img/**/*.+(png|jpg|gif|svg)')
     .pipe(cache(imagemin()))
-    .pipe(gulp.dest('dist/img'))
+    .pipe(gulp.dest(siteOutput +  '/img'))
   });
 
   // Runs the entire build process to create a finished dist folder
@@ -75,7 +86,7 @@ var nunjucksRender = require('gulp-nunjucks-render');
   gulp.task('sass', function(){
     return gulp.src('src/stylesheets/main.scss')
       .pipe(sass({outputStyle: 'compressed'})) // Using gulp-sass - outputs compressed file
-      .pipe(gulp.dest('src/stylesheets/'))
+      .pipe(gulp.dest(siteOutput + '/stylesheets'))
       .pipe(browserSync.reload({
         stream: true
       }))
