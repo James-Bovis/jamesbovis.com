@@ -66,7 +66,7 @@ var nunjucksRender = require('gulp-nunjucks-render');
   gulp.task('browserSync', function() {
     browserSync.init({
       server: {
-        baseDir: 'src/pages/'
+        baseDir: 'src/'
       },
     })
   })
@@ -91,7 +91,7 @@ var nunjucksRender = require('gulp-nunjucks-render');
 
   // Main Gulp Task
   gulp.task('default', function (callback) {
-    runSequence(['sass','browserSync', 'watch'],
+    runSequence(['sass', 'nunjucks', 'browserSync', 'watch'],
       callback
     )
   })
