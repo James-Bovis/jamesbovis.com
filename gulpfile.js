@@ -41,7 +41,7 @@ var nunjucksRender = require('gulp-nunjucks-render');
 
   // Concate my js files into 1 single minified file
   gulp.task('useref', function(){
-    return gulp.src('src/*.html')
+    return gulp.src(['src/index.html' , 'src/portfolio/*.html'])
       .pipe(useref())
       // Minifies only if it's a JavaScript file
       .pipe(gulpIf('*.js', uglify()))
