@@ -14,20 +14,49 @@ var concat = require('gulp-concat');
 
 var siteOutput = './dist';
 
-// BUILDING DIST VERSION
+/////////////////////////////////////////
+// PRODUCTION
+/////////////////////////////////////////
 
-  // Deletes the dist folder
-  gulp.task('clean:dist', function() {
-    return del.sync('dist');
+gulp.task('production', function (callback) {
+  runSequence(['clean', 'sass', 'nunjucks', 'images', 'concat', 'uncss'],
+    callback
+  )
+})
+
+// Deletes the dist folder
+gulp.task('clean', function() {
+  return del.sync('dist');
+})
+
+// Goes though all the CSS files in SRC/stylesheets and strips out anything thats not being used
+gulp.task('uncss', function () {
+  return gulp.src('dist/stylesheets/main.css')
+    .pipe(uncss({
+        html: ['dist/**/*.html'],
+    }))
+    .pipe(gulp.dest(siteOutput + '/stylesheets'));
+});
+
+/////////////////////////////////////////
+// LOCAL
+/////////////////////////////////////////
+
+  // Main Gulp Task
+  gulp.task('default', function (callback) {
+    runSequence(['sass', 'nunjucks', 'images', 'concat', 'watch', 'browserSync'],
+      callback
+    )
   })
 
-  // Goes though all the CSS files in SRC/CSS and strips out anything thats not being used
-  gulp.task('uncss', function () {
-    return gulp.src(['src/stylesheets/**/*.css' , '!src/stylesheets/uncss/**/*.css'])
-      .pipe(uncss({
-          html: ['src/**/*.html'],
+  // Compiles the SASS into CSS
+  gulp.task('sass', function(){
+    return gulp.src('src/stylesheets/main.scss')
+      .pipe(sass({outputStyle: 'compressed'}))
+      .pipe(gulp.dest(siteOutput + '/stylesheets'))
+      .pipe(browserSync.reload({
+        stream: true
       }))
-      .pipe(gulp.dest('dist/stylesheets/'));
   });
 
   // Nunjucks task
@@ -42,23 +71,6 @@ var siteOutput = './dist';
     .pipe(gulp.dest(siteOutput))
   });
 
-  gulp.task('concat', function() {
-    return gulp.src('src/js/*.js')
-        .pipe(concat('jamesbovis.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
-  });
-
-
-  // Portfolio useref
-  gulp.task('useref-portfolio', function(){
-    return gulp.src('src/portfolio/*.html')
-      .pipe(useref())
-      // Minifies only if it's a JavaScript file
-      .pipe(gulpIf('*.js', uglify()))
-      .pipe(gulp.dest('dist/portfolio/'))
-  });
-
   // Compress images
   gulp.task('images', function(){
     return gulp.src('src/img/**/*.+(png|jpg|gif|svg)')
@@ -66,30 +78,12 @@ var siteOutput = './dist';
     .pipe(gulp.dest(siteOutput +  '/img'))
   });
 
-  // Runs the entire build process to create a finished dist folder
-  gulp.task('build', function (callback) {
-    runSequence('clean:dist', 'sass', 'uncss', 'nunjucks', 
-      ['concat', 'images', 'browserSync'])
-  })
-
-// BUILDING LOCAL VERSION
-  // Runs browsersync on root folder
-  gulp.task('browserSync', function() {
-    browserSync.init({
-      server: {
-        baseDir: 'dist/'
-      },
-    })
-  })
-
-  // Compiles the SASS into CSS
-  gulp.task('sass', function(){
-    return gulp.src('src/stylesheets/main.scss')
-      .pipe(sass({outputStyle: 'compressed'})) // Using gulp-sass - outputs compressed file
-      .pipe(gulp.dest(siteOutput + '/stylesheets'))
-      .pipe(browserSync.reload({
-        stream: true
-      }))
+  // Minifies all the src/js files into 1 file
+  gulp.task('concat', function() {
+    return gulp.src('src/js/*.js')
+        .pipe(concat('jamesbovis.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(siteOutput + '/js'));
   });
 
   // Watches CSS and JS files for changes and reloads browser
@@ -100,9 +94,11 @@ var siteOutput = './dist';
     gulp.watch('js/*.js', browserSync.reload); 
   });
 
-  // Main Gulp Task
-  gulp.task('default', function (callback) {
-    runSequence(['sass', 'nunjucks', 'browserSync', 'watch'],
-      callback
-    )
+  // Runs browsersync on dist folder
+  gulp.task('browserSync', function() {
+    browserSync.init({
+      server: {
+        baseDir: siteOutput
+      },
+    })
   })

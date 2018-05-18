@@ -1,9 +1,13 @@
+// Import third party
+@import 'vendors/animate.min';
+@import 'vendors/bootstrap.min';
+@import 'vendors/hover-min';
+@import 'vendors/twemoji-awesome.min';
 
 // Import base components
 @import 'base/colors';
 @import 'base/typeography';
 @import 'base/_animation';
-
 
 // Import components
 @import 'components/all-components';
@@ -12,3 +16,4 @@
 @import 'layout/sections';
 @import 'layout/alignment';
 @import 'layout/responsive';
+
