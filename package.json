@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/James-Bovis/jamesbovis-2.0#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.7",
     "gulp": "^4.0.0",
     "gulp-sass": "^3.2.1"
   }
