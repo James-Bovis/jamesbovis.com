@@ -4,6 +4,7 @@ node_modules/
 package-lock.json
 stylesheets/.DS_Store
 debug.log# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+.netlify/
 
 # dependencies
 /node_modules
