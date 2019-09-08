@@ -1,6 +1,6 @@
 import React from 'react';
 import '../stylesheets/App.sass';
-import { BrowserRouter as Router, Route, Link, NavLink  } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, NavLink, Switch  } from "react-router-dom";
 
 function Index() {
   return <h2>Home</h2>;
@@ -16,6 +16,10 @@ function Portfolio() {
 
 function Blog() {
   return <h2>Console.log</h2>;
+}
+
+function NotFound() {
+  return <h2>Woops, page not found</h2>;
 }
 
 
@@ -47,10 +51,13 @@ function App() {
         </ul>
       </nav>
 
-      <Route path="/" exact component={Index} />
-      <Route path="/about" component={About} />
-      <Route path="/portfolio" component={Portfolio} />
-      <Route path="/blog" component={Blog} />
+      <Switch>
+        <Route path="/" exact component={Index} />
+        <Route path="/about" component={About} />
+        <Route path="/portfolio" component={Portfolio} />
+        <Route path="/blog" component={Blog} />
+        <Route component={NotFound} />
+      </Switch>
     </React.Fragment>
   );
 }
