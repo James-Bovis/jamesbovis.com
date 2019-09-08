@@ -1,6 +1,6 @@
 import React from 'react';
 import '../stylesheets/App.sass';
-import { BrowserRouter as Router, Route, Link, NavLink, Switch  } from "react-router-dom";
+import { Route, Link, NavLink, Switch  } from "react-router-dom";
 
 function Index() {
   return <h2>Home</h2>;
@@ -18,10 +18,17 @@ function Blog() {
   return <h2>Console.log</h2>;
 }
 
-function NotFound() {
-  return <h2>Woops, page not found</h2>;
+const NotFound = ({ location}) => {
+  console.log(location)
+  return (
+    <h2>
+      {`Woops, page not found for`}
+      <code>
+        {location.pathname}
+      </code>
+    </h2>
+  )
 }
-
 
 function App() {
   return (
