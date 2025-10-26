@@ -26,6 +26,8 @@ function App() {
               src={James}
               alt="James Bovis"
               className="w-24 h-24 rounded-full"
+              width={24}
+              height={24}
             />
           </picture>
           <div>
@@ -119,7 +121,9 @@ function App() {
               <div className="group border-b border-neutral-200 dark:border-neutral-700 pb-8">
                 <div className="flex items-start justify-between mb-2">
                   <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
-                    <span className="text-neutral-500 dark:text-neutral-500 mr-2">📦</span>
+                    <span className="text-neutral-500 dark:text-neutral-500 mr-2">
+                      📦
+                    </span>
                     <a
                       href="https://butternutbox.com"
                       target="_blank"
@@ -183,7 +187,9 @@ function App() {
               <div className="group border-b border-neutral-200 dark:border-neutral-700 pb-8">
                 <div className="flex items-start justify-between mb-2">
                   <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
-                    <span className="text-neutral-500 dark:text-neutral-500 mr-2">🐾</span>
+                    <span className="text-neutral-500 dark:text-neutral-500 mr-2">
+                      🐾
+                    </span>
                     <a
                       href="https://pawsquad.com/home"
                       target="_blank"
@@ -197,7 +203,9 @@ function App() {
                     Nov 2017 — Aug 2018
                   </span>
                 </div>
-                <p className="text-neutral-600 dark:text-neutral-400 mb-2">Front-End Developer</p>
+                <p className="text-neutral-600 dark:text-neutral-400 mb-2">
+                  Front-End Developer
+                </p>
                 <p className="text-neutral-500 dark:text-neutral-500 text-sm leading-relaxed">
                   Joined a small and very passionate team to help build the and
                   support new features for the PawSquad website. Involved
@@ -209,7 +217,9 @@ function App() {
               <div className="group">
                 <div className="flex items-start justify-between mb-2">
                   <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
-                    <span className="text-neutral-500 dark:text-neutral-500 mr-2">👗</span>
+                    <span className="text-neutral-500 dark:text-neutral-500 mr-2">
+                      👗
+                    </span>
                     <a
                       href="https://lauraashley.com"
                       target="_blank"
@@ -223,7 +233,9 @@ function App() {
                     Sep 2015 — Oct 2017
                   </span>
                 </div>
-                <p className="text-neutral-600 dark:text-neutral-400 mb-2">Web Designer</p>
+                <p className="text-neutral-600 dark:text-neutral-400 mb-2">
+                  Web Designer
+                </p>
                 <p className="text-neutral-500 dark:text-neutral-500 text-sm leading-relaxed">
                   I supported a large, multi-department team by designing and
                   building responsive, ROI-focused web pages and creating
@@ -263,7 +275,9 @@ function App() {
             </h2>
             <div className="grid grid-cols-2 gap-4 text-neutral-700 dark:text-neutral-300">
               <div>
-                <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">Front-End</h3>
+                <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+                  Front-End
+                </h3>
                 <ul className="text-sm space-y-1 text-neutral-600 dark:text-neutral-400">
                   <li>React</li>
                   <li>TypeScript</li>
@@ -273,7 +287,9 @@ function App() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">Tools</h3>
+                <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+                  Tools
+                </h3>
                 <ul className="text-sm space-y-1 text-neutral-600 dark:text-neutral-400">
                   <li>Git & GitHub</li>
                   <li>Launch Darkly</li>
