@@ -4,6 +4,18 @@ import JamesWebp from "./james-webp.webp";
 import { ThemeToggle } from "./components/ThemeToggle";
 
 function App() {
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+
+    if (hour < 12) {
+      return "Good morning";
+    } else if (hour >= 12 && hour < 17) {
+      return "Good afternoon";
+    } else {
+      return "Good evening";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 transition-colors">
       <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
@@ -46,7 +58,7 @@ function App() {
         <main className="space-y-20">
           <section>
             <h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-4 tracking-tight">
-              Hi,
+              {getGreeting()},
             </h2>
             <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8">
               <p className="text-lg">
