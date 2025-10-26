@@ -1,10 +1,11 @@
+import { useMemo, memo } from "react";
 import { Mail, Github, Linkedin, ExternalLink, Heart } from "lucide-react";
 import James from "./james.jpg";
 import JamesWebp from "./james-webp.webp";
 import { ThemeToggle } from "./components/ThemeToggle";
 
 function App() {
-  const getGreeting = () => {
+  const greeting = useMemo(() => {
     const hour = new Date().getHours();
 
     if (hour < 12) {
@@ -14,7 +15,9 @@ function App() {
     } else {
       return "Good evening";
     }
-  };
+  }, []);
+
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 transition-colors">
@@ -54,7 +57,7 @@ function App() {
         <main className="space-y-20">
           <section>
             <h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-4 tracking-tight">
-              {getGreeting()},
+              {greeting},
             </h2>
             <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8">
               <p className="text-lg">
@@ -297,7 +300,7 @@ function App() {
 
         <footer className="mt-32 pt-8 border-t border-neutral-200 dark:border-neutral-700 flex items-center justify-between">
           <p className="text-sm text-neutral-400 dark:text-neutral-600">
-            © {new Date().getFullYear()} James Bovis
+            © {currentYear} James Bovis
           </p>
           <div className="flex items-center gap-4">
             <p className="text-sm text-neutral-400 dark:text-neutral-600">
@@ -321,4 +324,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);
