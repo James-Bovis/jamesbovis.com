@@ -22,13 +22,7 @@ function App() {
         <header className="mb-24 flex items-center gap-4">
           <picture>
             <source srcSet={JamesWebp} type="image/webp" />
-            <img
-              src={James}
-              alt="James Bovis"
-              className="w-24 h-24 rounded-full"
-              width={24}
-              height={24}
-            />
+            <img src={James} alt="James Bovis" className="w-24 rounded-full" />
           </picture>
           <div>
             <h1 className="text-3xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-100 mb-1 tracking-tight">
