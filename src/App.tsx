@@ -49,18 +49,18 @@ function App() {
             </h2>
             <div className="space-y-4 text-neutral-700 leading-relaxed mb-8">
               <p className="text-lg">
-                I'm James. I am a Front-End Web Developer living in Kent and
-                currently working at Butternut Box.
+                I'm James. I'm a Front-End Web Developer based in Kent,
+                currently with the Acquisition team at Butternut Box.
               </p>
               <p>
-                Building beautiful websites, creating joyful customer
-                experiences and managing effective teams is what I'm best at and
-                over my 7+ years of start up experience, I've picked up a few
-                things along the way.
+                With over 7 years of experience in fast-paced startups, I
+                specialize in building beautiful websites, creating joyful
+                customer experiences, and managing effective teams. I thrive on
+                shipping great products and growing with the teams I work with.
               </p>
               <p>
-                In my time outside of work, you'll find me drinking coffee,
-                watching a film or trying to improve my Padel game.
+                Outside of work, you'll find me drinking coffee, watching a
+                film, or trying to improve my Padel game.
               </p>
             </div>
 
