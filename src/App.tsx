@@ -1,11 +1,4 @@
-import {
-  Mail,
-  Github,
-  Linkedin,
-  ExternalLink,
-  Heart,
-  Bolt,
-} from "lucide-react";
+import { Mail, Github, Linkedin, ExternalLink, Heart } from "lucide-react";
 import James from "./james.jpg";
 
 function App() {
@@ -13,11 +6,14 @@ function App() {
     <div className="min-h-screen bg-white">
       <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
         <header className="mb-24 flex items-center gap-4">
-          <img
-            src={James}
-            alt="James Bovis"
-            className="w-24 h-24 rounded-full"
-          />
+          <picture>
+            <source srcSet={James.replace(".jpg", ".webp")} type="image/webp" />
+            <img
+              src={James}
+              alt="James Bovis"
+              className="w-24 h-24 rounded-full"
+            />
+          </picture>
           <div>
             <h1 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-1 tracking-tight">
               James Bovis
