@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    background-color: white;
+  }
+
+  :root.dark {
+    background-color: #171717;
+  }
+
   body {
     @apply antialiased;
   }
