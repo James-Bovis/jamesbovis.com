@@ -4,7 +4,9 @@ import James from "./james.jpg";
 import JamesWebp from "./james-webp.webp";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { TemperatureUnitToggle } from "./components/TemperatureUnitToggle";
+import { PinnedRepository } from "./components/PinnedRepository";
 import { useWeather, TemperatureUnit } from "./hooks/useWeather";
+import { useGitHubPinnedRepos } from "./hooks/useGitHubPinnedRepos";
 import { getWeatherIcon } from "./utils/weatherIcons";
 import { getDefaultTemperatureUnit } from "./utils/temperatureUnit";
 
@@ -28,6 +30,7 @@ const App = () => {
   );
 
   const { temperature, weatherCode, loading } = useWeather(temperatureUnit);
+  const { repos, loading: reposLoading } = useGitHubPinnedRepos();
 
   const toggleTemperatureUnit = () => {
     setTemperatureUnit((prev) =>
@@ -270,26 +273,35 @@ const App = () => {
             </div>
           </section>
 
-          {/* <section>
-            <h2 className="text-sm font-bold text-neutral-900 mb-8 uppercase tracking-wider">
+          <section className="opacity-0 animate-fade-in-up animation-delay-800">
+            <h2 className="text-sm font-bold text-neutral-900 dark:text-neutral-100 mb-8 uppercase tracking-wider">
               Projects
             </h2>
-            <div className="space-y-8">
-              <div className="group">
-                <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-lg font-medium text-neutral-900">
-                    TBC
-                  </h3>
-                </div>
-                <p className="text-neutral-600 mb-2">
-                  Coming Soon...
-                </p>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-                </p>
+            {reposLoading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="border border-neutral-200 dark:border-neutral-700 rounded-lg p-6 animate-pulse"
+                  >
+                    <div className="h-6 bg-neutral-200 dark:bg-neutral-700 rounded w-3/4 mb-3"></div>
+                    <div className="h-4 bg-neutral-200 dark:bg-neutral-700 rounded w-full mb-2"></div>
+                    <div className="h-4 bg-neutral-200 dark:bg-neutral-700 rounded w-2/3"></div>
+                  </div>
+                ))}
               </div>
-            </div>
-          </section> */}
+            ) : repos.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {repos.map((repo) => (
+                  <PinnedRepository key={repo.name} repo={repo} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-neutral-500 dark:text-neutral-400 text-sm">
+                No pinned repositories found.
+              </p>
+            )}
+          </section>
 
           <section>
             <h2 className="text-sm font-bold text-neutral-900 dark:text-neutral-100 mb-8 uppercase tracking-wider">
