@@ -38,7 +38,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 transition-colors">
       <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-        <header className="mb-24 flex items-center gap-4">
+        <header className="mb-24 flex items-center gap-4 opacity-0 animate-fade-in-up">
           <picture>
             <source srcSet={JamesWebp} type="image/webp" />
             <img src={James} alt="James Bovis" className="w-24 rounded-full" />
@@ -71,7 +71,7 @@ const App = () => {
         </header>
 
         <main className="space-y-20">
-          <section>
+          <section className="opacity-0 animate-fade-in-up animation-delay-200">
             <h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-4 tracking-tight">
               {greeting},
             </h2>
@@ -101,7 +101,7 @@ const App = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-6 opacity-0 animate-fade-in-up animation-delay-400">
               <a
                 href="mailto:hello@jamesbovis.com"
                 className="flex items-center gap-2 text-neutral-900 dark:text-neutral-100 hover:underline transition-colors group"
@@ -135,7 +135,7 @@ const App = () => {
 
           <section></section>
 
-          <section>
+          <section className="opacity-0 animate-fade-in-up animation-delay-600">
             <h2 className="text-sm font-bold text-neutral-900 dark:text-neutral-100 mb-8 uppercase tracking-wider">
               Work
             </h2>

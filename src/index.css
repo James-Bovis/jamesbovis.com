@@ -21,18 +21,15 @@
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-in;
+  .animation-delay-200 {
+    animation-delay: 200ms;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
   }
 }
