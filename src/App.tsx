@@ -1,10 +1,14 @@
-import { useMemo, memo } from "react";
+import { useMemo, memo, useState } from "react";
 import { Mail, Github, Linkedin, ExternalLink, Heart } from "lucide-react";
 import James from "./james.jpg";
 import JamesWebp from "./james-webp.webp";
 import { ThemeToggle } from "./components/ThemeToggle";
+import { TemperatureUnitToggle } from "./components/TemperatureUnitToggle";
+import { useWeather, TemperatureUnit } from "./hooks/useWeather";
+import { getWeatherIcon } from "./utils/weatherIcons";
+import { getDefaultTemperatureUnit } from "./utils/temperatureUnit";
 
-function App() {
+const App = () => {
   const greeting = useMemo(() => {
     const hour = new Date().getHours();
 
@@ -18,6 +22,18 @@ function App() {
   }, []);
 
   const currentYear = useMemo(() => new Date().getFullYear(), []);
+
+  const [temperatureUnit, setTemperatureUnit] = useState<TemperatureUnit>(
+    getDefaultTemperatureUnit()
+  );
+
+  const { temperature, weatherCode, loading } = useWeather(temperatureUnit);
+
+  const toggleTemperatureUnit = () => {
+    setTemperatureUnit((prev) =>
+      prev === "celsius" ? "fahrenheit" : "celsius"
+    );
+  };
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 transition-colors">
@@ -61,18 +77,27 @@ function App() {
             </h2>
             <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8">
               <p className="text-lg">
-                I'm James. I'm a Front-End Web Developer based in Kent,
-                currently with the Acquisition team at Butternut Box.
+                {`I'm James. I'm a Front-End Engineer living in `}
+                {loading ? (
+                  "Kent"
+                ) : (
+                  <>
+                    {getWeatherIcon(weatherCode)} {temperature}°
+                    {temperatureUnit === "celsius" ? "C" : "F"} Kent
+                  </>
+                )}
+                {`, currently leading the
+                Acquisition team at Butternut Box.`}
               </p>
               <p>
-                With over 7 years of experience in fast-paced startups, I
+                {`With over 7 years of experience in fast-paced startups, I
                 specialize in building beautiful websites, creating joyful
                 customer experiences, and managing effective teams. I thrive on
-                shipping great products and growing with the teams I work with.
+                shipping great products and growing with the teams I work with.`}
               </p>
               <p>
-                Outside of work, you'll find me drinking coffee, watching a
-                film, or trying to improve my Padel game.
+                {`Outside of work, you'll find me drinking coffee, watching a
+                film, or trying to improve my Padel game.`}
               </p>
             </div>
 
@@ -135,11 +160,11 @@ function App() {
                   </span>
                 </div>
                 <div className="flex items-start justify-between mb-2">
-                  <p className="text-neutral-600 dark:text-neutral-400 mb-2">
+                  <p className="text-neutral-600 dark:text-neutral-200 mb-2">
                     Senior Front-End Engineer - Team Lead
                   </p>
                 </div>
-                <p className="text-neutral-500 dark:text-neutral-500 text-sm leading-relaxed mb-5">
+                <p className="text-neutral-500 dark:text-neutral-300 text-sm leading-relaxed mb-5">
                   As the Engineering Team Lead for the Acquisition Team at
                   Butternut Box, I manage a team of 6 engineers dedicated to
                   optimizing the new customer signup journey. Our primary goal
@@ -147,7 +172,7 @@ function App() {
                   working within a React/TypeScript and Ruby on Rails
                   environment.
                 </p>
-                <p className="text-neutral-500 dark:text-neutral-500 text-sm leading-relaxed mb-10">
+                <p className="text-neutral-500 dark:text-neutral-300 text-sm leading-relaxed mb-10">
                   My role involves mentoring and supporting my team's career
                   development, guiding our technical architecture, and ensuring
                   we maintain high standards for code quality. I collaborate
@@ -156,7 +181,7 @@ function App() {
                   features that directly impact business growth.
                 </p>
                 <div className="flex justify-between items-center mb-2">
-                  <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-2">
+                  <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-2">
                     Engineering Team Lead
                   </p>
                   <span className="text-sm text-neutral-500 dark:text-neutral-500">
@@ -164,7 +189,7 @@ function App() {
                   </span>
                 </div>
                 <div className="flex justify-between items-center mb-2">
-                  <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-2">
+                  <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-2">
                     Front-End Engineer
                   </p>
                   <span className="text-sm text-neutral-500 dark:text-neutral-500">
@@ -172,7 +197,7 @@ function App() {
                   </span>
                 </div>
                 <div className="flex justify-between items-center mb-2">
-                  <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-2">
+                  <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-2">
                     Junior Front-End Engineer
                   </p>
                   <span className="text-sm text-neutral-500 dark:text-neutral-500">
@@ -200,10 +225,10 @@ function App() {
                     Nov 2017 — Aug 2018
                   </span>
                 </div>
-                <p className="text-neutral-600 dark:text-neutral-400 mb-2">
+                <p className="text-neutral-600 dark:text-neutral-300 mb-2">
                   Front-End Developer
                 </p>
-                <p className="text-neutral-500 dark:text-neutral-500 text-sm leading-relaxed">
+                <p className="text-neutral-500 dark:text-neutral-300 text-sm leading-relaxed">
                   Joined a small and very passionate team to help build the and
                   support new features for the PawSquad website. Involved
                   building marketing landing pages and maintaining the Vet Nurse
@@ -230,10 +255,10 @@ function App() {
                     Sep 2015 — Oct 2017
                   </span>
                 </div>
-                <p className="text-neutral-600 dark:text-neutral-400 mb-2">
+                <p className="text-neutral-600 dark:text-neutral-300 mb-2">
                   Web Designer
                 </p>
-                <p className="text-neutral-500 dark:text-neutral-500 text-sm leading-relaxed">
+                <p className="text-neutral-500 dark:text-neutral-300 text-sm leading-relaxed">
                   I supported a large, multi-department team by designing and
                   building responsive, ROI-focused web pages and creating
                   diverse digital marketing content. This included producing
@@ -298,11 +323,11 @@ function App() {
           </section>
         </main>
 
-        <footer className="mt-32 pt-8 border-t border-neutral-200 dark:border-neutral-700 flex items-center justify-between">
+        <footer className="mt-32 pt-8 border-t border-neutral-200 dark:border-neutral-700 flex justify-between flex-col md:flex-row items-center">
           <p className="text-sm text-neutral-400 dark:text-neutral-600">
             © {currentYear} James Bovis
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1">
             <p className="text-sm text-neutral-400 dark:text-neutral-600">
               {`Built with `}
               <Heart className="w-4 h-4 inline-block text-red-500 mb-1" />
@@ -316,12 +341,16 @@ function App() {
                 Bolt
               </a>
             </p>
+            <TemperatureUnitToggle
+              unit={temperatureUnit}
+              onToggle={toggleTemperatureUnit}
+            />
             <ThemeToggle />
           </div>
         </footer>
       </div>
     </div>
   );
-}
+};
 
 export default memo(App);
