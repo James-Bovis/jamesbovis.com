@@ -1,12 +1,12 @@
 import { memo } from "react";
-import { TemperatureUnit } from "../hooks/useWeather";
+import { TemperatureUnit } from "../../hooks/useWeather";
 
 interface TemperatureUnitToggleProps {
   unit: TemperatureUnit;
   onToggle: () => void;
 }
 
-export const TemperatureUnitToggle = memo(
+const TemperatureUnitToggle = memo(
   ({ unit, onToggle }: TemperatureUnitToggleProps) => {
     return (
       <button
@@ -21,7 +21,9 @@ export const TemperatureUnitToggle = memo(
         </span>
       </button>
     );
-  }
+  },
 );
 
 TemperatureUnitToggle.displayName = "TemperatureUnitToggle";
+
+export default TemperatureUnitToggle;

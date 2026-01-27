@@ -2,12 +2,15 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
-import { ThemeProvider } from './contexts/ThemeContext.tsx';
+import { ThemeProvider } from './contexts/ThemeProvider.tsx';
+import { TemperatureUnitProvider } from './contexts/TemperatureUnitProvider.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
-      <App />
+      <TemperatureUnitProvider>
+        <App />
+      </TemperatureUnitProvider>
     </ThemeProvider>
   </StrictMode>
 );

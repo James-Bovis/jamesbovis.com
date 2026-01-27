@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme } from "../../hooks/useTheme";
 
-export const ThemeToggle = memo(() => {
+const ThemeToggle = memo(() => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -19,3 +19,5 @@ export const ThemeToggle = memo(() => {
     </button>
   );
 });
+
+export default ThemeToggle;

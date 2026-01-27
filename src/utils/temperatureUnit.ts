@@ -12,8 +12,6 @@ export const getDefaultTemperatureUnit = (): TemperatureUnit => {
     // Try to get the country code from the user's locale
     const locale = navigator.language || "en-GB";
 
-    console.log(locale);
-
     // Extract country code (e.g., "en-US" -> "US", "en-GB" -> "GB")
     const countryCode = locale.split("-")[1]?.toUpperCase();
 
