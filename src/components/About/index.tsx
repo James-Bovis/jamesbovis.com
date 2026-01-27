@@ -1,10 +1,12 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { useWeather } from "../../hooks/useWeather";
 import { Mail, Github, Linkedin, ExternalLink } from "lucide-react";
 import { getWeatherIcon } from "../../utils/weatherIcons";
 import { useTemperatureUnit } from "../../hooks/useTemperatureUnit";
 
 const About = () => {
+  const { t } = useTranslation();
   const { temperatureUnit } = useTemperatureUnit();
   const { temperature, weatherCode, loading } = useWeather(temperatureUnit);
 
@@ -12,13 +14,13 @@ const About = () => {
     const hour = new Date().getHours();
 
     if (hour < 12) {
-      return "Good morning";
+      return t("about.greeting.morning");
     } else if (hour >= 12 && hour < 17) {
-      return "Good afternoon";
+      return t("about.greeting.afternoon");
     } else {
-      return "Good evening";
+      return t("about.greeting.evening");
     }
-  }, []);
+  }, [t]);
 
   return (
     <section className="opacity-0 animate-fade-in-up animation-delay-200">
@@ -27,7 +29,7 @@ const About = () => {
       </h2>
       <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8">
         <p className="text-lg">
-          {`I'm James. I'm a Front-End Engineer living in `}
+          {`${t("about.intro")} `}
           {loading ? (
             "Kent"
           ) : (
@@ -36,19 +38,10 @@ const About = () => {
               {temperatureUnit === "celsius" ? "C" : "F"} Kent
             </>
           )}
-          {`, currently leading the
-                Acquisition team at Butternut Box.`}
+          {t("about.introSuffix")}
         </p>
-        <p>
-          {`With over 7 years of experience in fast-paced startups, I
-                specialize in building beautiful websites, creating joyful
-                customer experiences, and managing effective teams. I thrive on
-                shipping great products and growing with the teams I work with.`}
-        </p>
-        <p>
-          {`Outside of work, you'll find me drinking coffee, watching a
-                film, or trying to improve my Padel game.`}
-        </p>
+        <p>{t("about.bio.paragraph1")}</p>
+        <p>{t("about.bio.paragraph2")}</p>
       </div>
 
       <div className="flex flex-wrap gap-6 opacity-0 animate-fade-in-up animation-delay-400">
@@ -57,7 +50,7 @@ const About = () => {
           className="flex items-center gap-2 text-neutral-900 dark:text-neutral-100 hover:underline transition-colors group"
         >
           <Mail className="w-5 h-5" />
-          <span className="font-medium">Email</span>
+          <span className="font-medium">{t("about.links.email")}</span>
           <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
         </a>
         <a
@@ -67,7 +60,7 @@ const About = () => {
           className="flex items-center gap-2 text-neutral-900 dark:text-neutral-100 hover:underline transition-colors group"
         >
           <Github className="w-5 h-5" />
-          <span className="font-medium">GitHub</span>
+          <span className="font-medium">{t("about.links.github")}</span>
           <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
         </a>
         <a
@@ -77,7 +70,7 @@ const About = () => {
           className="flex items-center gap-2 text-neutral-900 dark:text-neutral-100 hover:underline transition-colors group"
         >
           <Linkedin className="w-5 h-5" />
-          <span className="font-medium">LinkedIn</span>
+          <span className="font-medium">{t("about.links.linkedin")}</span>
           <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
         </a>
       </div>

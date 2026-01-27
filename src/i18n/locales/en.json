@@ -1,0 +1,78 @@
+{
+  "masthead": {
+    "imageAlt": "James Bovis",
+    "role": "Senior Front-End Engineer at"
+  },
+  "about": {
+    "greeting": {
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good evening"
+    },
+    "intro": "I'm James. I'm a Front-End Engineer living in",
+    "introSuffix": ", currently leading the Acquisition team at Butternut Box.",
+    "bio": {
+      "paragraph1": "With over 7 years of experience in fast-paced startups, I specialize in building beautiful websites, creating joyful customer experiences, and managing effective teams. I thrive on shipping great products and growing with the teams I work with.",
+      "paragraph2": "Outside of work, you'll find me drinking coffee, watching a film, or trying to improve my Padel game."
+    },
+    "links": {
+      "email": "Email",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "work": {
+    "sectionTitle": "Work",
+    "present": "Present",
+    "jobs": {
+      "butternutBox": {
+        "title": "Senior Front-End Engineer - Team Lead",
+        "description1": "As the Engineering Team Lead for the Acquisition Team at Butternut Box, I manage a team of 6 engineers dedicated to optimizing the new customer signup journey. Our primary goal is to improve conversion rates across 6 international markets, working within a React/TypeScript and Ruby on Rails environment.",
+        "description2": "My role involves mentoring and supporting my team's career development, guiding our technical architecture, and ensuring we maintain high standards for code quality. I collaborate closely with product managers, designers, and data analysts to define our roadmap, drive A/B testing strategies, and deliver features that directly impact business growth.",
+        "dateRange": "August 2018 — Present",
+        "roles": {
+          "teamLead": {
+            "title": "Engineering Team Lead",
+            "dateRange": "July 2022 — Feb 2024"
+          },
+          "frontEnd": {
+            "title": "Front-End Engineer",
+            "dateRange": "Feb 2020 — Sep 2022"
+          },
+          "junior": {
+            "title": "Junior Front-End Engineer",
+            "dateRange": "Aug 2018 — Feb 2020"
+          }
+        }
+      },
+      "pawSquad": {
+        "title": "Front-End Developer",
+        "description": "Joined a small and very passionate team to help build the and support new features for the PawSquad website. Involved building marketing landing pages and maintaining the Vet Nurse online portal.",
+        "dateRange": "Nov 2017 — Aug 2018"
+      },
+      "lauraAshley": {
+        "title": "Web Designer",
+        "description": "I supported a large, multi-department team by designing and building responsive, ROI-focused web pages and creating diverse digital marketing content. This included producing assets and affiliate banners, often adapting designs for French and German markets based on a continuous promotional calendar.",
+        "dateRange": "Sep 2015 — Oct 2017"
+      }
+    }
+  },
+  "skills": {
+    "sectionTitle": "Skills",
+    "categories": {
+      "frontEnd": "Front-End",
+      "tools": "Tools"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} James Bovis",
+    "builtWith": "Built with",
+    "and": "and"
+  },
+  "accessibility": {
+    "switchToLightMode": "Switch to light mode",
+    "switchToDarkMode": "Switch to dark mode",
+    "switchToCelsius": "Switch to Celsius",
+    "switchToFahrenheit": "Switch to Fahrenheit"
+  }
+}

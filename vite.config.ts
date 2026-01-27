@@ -15,21 +15,6 @@ export default defineConfig({
         drop_debugger: true,
       },
     },
-    rollupOptions: {
-      output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('lucide-react')) {
-              return 'lucide';
-            }
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'react-vendor';
-            }
-            return 'vendor';
-          }
-        },
-      },
-    },
     chunkSizeWarningLimit: 600,
     reportCompressedSize: true,
   },
